@@ -1,0 +1,584 @@
+/* =============================================
+   SOFTCRAFT AGENCY — TEAM PAGE
+   Premium Glassmorphism / Agency Style
+   ============================================= */
+
+/* ── Section Shell ── */
+.team-section {
+  position: relative;
+  padding: 7rem 0 5rem;
+  background: var(--bg-base);
+  overflow: hidden;
+}
+
+/* ── Background layers ── */
+.team-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Radial orbs */
+.team-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.35;
+}
+.team-orb-1 {
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+  top: -200px; left: -150px;
+  animation: floatOrb 12s ease-in-out infinite;
+}
+.team-orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
+  bottom: -100px; right: -100px;
+  animation: floatOrb 10s ease-in-out infinite 3s;
+}
+.team-orb-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: floatOrb 14s ease-in-out infinite 6s;
+}
+
+/* Grid / circuit pattern */
+.team-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
+}
+
+/* Floating particles */
+.team-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(124,58,237,0.6);
+  animation: particleDrift linear infinite;
+}
+.particle:nth-child(2)  { background: rgba(37,99,235,0.5); width:2px; height:2px; }
+.particle:nth-child(3)  { background: rgba(6,182,212,0.5);  width:4px; height:4px; }
+.particle:nth-child(4)  { background: rgba(124,58,237,0.4); width:2px; height:2px; }
+.particle:nth-child(5)  { background: rgba(37,99,235,0.6); }
+.particle:nth-child(6)  { background: rgba(6,182,212,0.4);  width:3px; height:3px; }
+
+@keyframes particleDrift {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-120vh) translateX(30px) scale(0.5); opacity: 0; }
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0); }
+  33%  { transform: translate(30px, -20px); }
+  66%  { transform: translate(-20px, 15px); }
+}
+
+/* ── Section header ── */
+.team-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.team-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.25);
+  padding: 0.4rem 1.1rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+
+.team-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent-purple);
+  box-shadow: 0 0 8px var(--accent-purple);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.team-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.team-title .highlight {
+  background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.team-subtitle {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ── Divider line ── */
+.team-divider {
+  width: 60px; height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #2563eb, #06b6d4);
+  border-radius: 100px;
+  margin: 1.5rem auto 0;
+}
+
+/* ── Cards Grid ── */
+.team-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 5rem;
+}
+
+/* ── Individual Card ── */
+.team-card {
+  position: relative;
+  background: rgba(17, 25, 39, 0.7);
+  border: 1px solid rgba(148,163,184,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
+  cursor: default;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Glow border on hover */
+.team-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(124,58,237,0), rgba(37,99,235,0), rgba(6,182,212,0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(124,58,237,0.3),
+    0 0 40px rgba(124,58,237,0.08);
+  border-color: rgba(124,58,237,0.35);
+}
+
+.team-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(124,58,237,0.6), rgba(37,99,235,0.4), rgba(6,182,212,0.3));
+}
+
+/* ── Photo area ── */
+.team-photo-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 3.5;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d1117 0%, #131820 100%);
+}
+
+.team-photo-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(17,25,39,0.95) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.team-card:hover .team-photo {
+  transform: scale(1.06);
+}
+
+/* Placeholder avatar (used when no real photo) */
+.team-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d1117 0%, rgba(124,58,237,0.08) 100%);
+  gap: 1rem;
+  position: relative;
+}
+
+.team-avatar-initials {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.team-avatar-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* Role badge floating on photo */
+.team-role-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 3;
+  background: rgba(7,9,15,0.8);
+  border: 1px solid rgba(124,58,237,0.3);
+  border-radius: 100px;
+  padding: 0.3rem 0.875rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #a78bfa;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ── Card body ── */
+.team-card-body {
+  padding: 1.5rem 1.5rem 1.625rem;
+  position: relative;
+  z-index: 1;
+}
+
+.team-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.2rem;
+}
+
+.team-role {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.875rem;
+}
+
+.team-bio {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+/* More About action */
+.team-profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  border-top: 1px solid rgba(148,163,184,0.14);
+  padding-top: 1rem;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+  text-decoration: none;
+}
+
+.team-profile-btn .arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(148,163,184,0.2);
+  font-size: 0.7rem;
+  transition: all 0.25s ease;
+}
+
+.team-profile-btn:hover,
+.team-card:hover .team-profile-btn {
+  color: #a78bfa;
+}
+
+.team-profile-btn:hover .arrow,
+.team-card:hover .team-profile-btn .arrow {
+  border-color: rgba(124,58,237,0.4);
+  background: rgba(124,58,237,0.12);
+  transform: translateX(3px);
+}
+
+/* ── Founder special treatment ── */
+.team-card.founder {
+  background: rgba(124,58,237,0.06);
+  border-color: rgba(124,58,237,0.2);
+}
+
+.team-card.founder:hover {
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(124,58,237,0.4),
+    0 0 60px rgba(124,58,237,0.12);
+}
+
+.founder-crown {
+  position: absolute;
+  top: 14px; right: 14px;
+  z-index: 4;
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 12px rgba(124,58,237,0.4);
+}
+
+/* ── Values section ── */
+.team-values {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 4.5rem;
+}
+
+.team-values-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.team-values-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.value-pill {
+  background: rgba(17,25,39,0.6);
+  border: 1px solid rgba(148,163,184,0.09);
+  border-radius: 16px;
+  padding: 1.625rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.value-pill::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 16px 16px 0 0;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.value-pill:nth-child(1)::before { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+.value-pill:nth-child(2)::before { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+.value-pill:nth-child(3)::before { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+.value-pill:nth-child(4)::before { background: linear-gradient(90deg, #10b981, #34d399); }
+
+.value-pill:hover {
+  border-color: rgba(124,58,237,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+}
+.value-pill:hover::before { opacity: 1; }
+
+.value-number {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-purple);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.value-pill h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.value-pill p {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ── CTA block ── */
+.team-cta-block {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background: rgba(17,25,39,0.5);
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: 24px;
+  padding: 3.5rem 2rem;
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.team-cta-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.team-cta-block h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 0.875rem;
+  position: relative;
+  z-index: 1;
+}
+
+.team-cta-block p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Scroll reveal for team cards ── */
+.team-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.team-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.team-reveal:nth-child(1) { transition-delay: 0.05s; }
+.team-reveal:nth-child(2) { transition-delay: 0.12s; }
+.team-reveal:nth-child(3) { transition-delay: 0.19s; }
+.team-reveal:nth-child(4) { transition-delay: 0.26s; }
+.team-reveal:nth-child(5) { transition-delay: 0.33s; }
+.team-reveal:nth-child(6) { transition-delay: 0.40s; }
+
+/* ── Section transitions ── */
+.team-transition-top {
+  height: 120px;
+  background: linear-gradient(to bottom, var(--bg-surface), var(--bg-base));
+  margin-bottom: -1px;
+}
+.team-transition-bottom {
+  height: 120px;
+  background: linear-gradient(to bottom, var(--bg-base), var(--bg-surface));
+  margin-top: -1px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .team-grid   { grid-template-columns: repeat(2, 1fr); }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .team-section  { padding: 5rem 0 3.5rem; }
+  .team-grid     { grid-template-columns: 1fr; gap: 1.25rem; }
+  .values-grid   { grid-template-columns: 1fr; }
+  .team-cta-block { padding: 2.5rem 1.5rem; }
+  .team-photo-wrap { aspect-ratio: 3 / 3.2; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .team-photo,
+  .team-reveal,
+  .value-pill,
+  .team-orb,
+  .particle { transition: none !important; animation: none !important; }
+  .team-reveal { opacity: 1; transform: none; }
+}

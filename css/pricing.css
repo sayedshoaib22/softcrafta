@@ -1,0 +1,155 @@
+/* =============================================
+   SOFTCRAFT AGENCY — PRICING PAGE STYLES
+   ============================================= */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* AI Pricing List */
+.ai-pricing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.ai-price-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr auto auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.ai-price-row:last-child { border-bottom: none; }
+
+.ai-price-row:hover { background: var(--bg-elevated); }
+
+.ai-price-row--featured {
+  background: var(--primary-glow);
+  border-color: var(--border-active);
+}
+
+.apr-service {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+}
+
+.apr-desc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.apr-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--primary-light);
+  white-space: nowrap;
+}
+
+/* SEO Services */
+.seo-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.seo-service-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  transition: var(--transition);
+}
+
+.seo-service-item:hover {
+  border-color: var(--border-active);
+  background: var(--bg-card-hover);
+}
+
+.ssi-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  width: 36px;
+  text-align: center;
+}
+
+.seo-service-item strong {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.seo-service-item p {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+/* Add-ons Table */
+.addons-table {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.addon-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.addon-row:last-child { border-bottom: none; }
+.addon-row:hover { background: var(--bg-elevated); }
+
+.ar-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.ar-desc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.ar-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--success);
+  white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .ai-price-row { grid-template-columns: 1fr auto auto; }
+  .apr-desc { display: none; }
+}
+
+@media (max-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+  .seo-services-grid { grid-template-columns: 1fr; }
+  .ai-price-row { grid-template-columns: 1fr auto; }
+  .ai-price-row .btn { display: none; }
+  .addon-row { grid-template-columns: 1fr auto; }
+  .ar-desc { display: none; }
+}
