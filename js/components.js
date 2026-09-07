@@ -203,4 +203,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const waEl = document.getElementById('floating-wa');
   if (waEl) waEl.outerHTML = FLOATING_WA_HTML;
+
+  const aiScript = document.createElement('script');
+  aiScript.src = 'js/softcraft-ai.js';
+  aiScript.defer = true;
+  document.head.appendChild(aiScript);
 });
