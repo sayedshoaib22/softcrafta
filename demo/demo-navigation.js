@@ -1,4 +1,7 @@
 (() => {
+  import('./client-navbar.js?v=7');
+  return;
+
   const demoName = window.location.pathname.split('/').filter(Boolean).slice(-2, -1)[0];
   const clientPages = {
     'portfolio-website': { label: 'Aarav Visuals navigation', links: [['Home', 'index.html'], ['About', 'about.html'], ['Selected Work', 'work.html'], ['Contact', 'contact.html']] },

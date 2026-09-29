@@ -41,6 +41,7 @@
     const search = document.querySelector('#catalogue-search');
     const count = document.querySelector('#catalogue-count');
     let category = 'all';
+    search.value = new URLSearchParams(window.location.search).get('q') || '';
     const update = () => {
       let shown = 0;
       grid.querySelectorAll('[data-id]').forEach(card => {
@@ -60,6 +61,7 @@
       const button = event.target.closest('[data-add-product]');
       if (button) addProduct(button.dataset.addProduct);
     });
+    update();
   };
   const renderCart = () => {
     const lines = document.querySelector('#cart-lines');

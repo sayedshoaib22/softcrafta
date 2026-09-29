@@ -3,12 +3,17 @@
   const grid = document.querySelector('#product-grid');
   if (!filters || !grid) return;
   const products = [...grid.querySelectorAll('.product-card')];
+  const requestedSearch = new URLSearchParams(window.location.search).get('q');
+  if (requestedSearch) {
+    const searchInput = document.querySelector('#search-input');
+    searchInput.value = requestedSearch;
+    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
   const topbar = document.querySelector('.topbar');
   if (topbar) topbar.textContent = 'VOLTIX · PREMIUM ELECTRONICS COLLECTION';
   document.querySelector('.newsletter')?.remove();
   document.querySelector('.analytics')?.closest('.section')?.remove();
   document.querySelector('.whatsapp')?.closest('.section')?.remove();
-  document.querySelectorAll('.wishlist').forEach(button => button.remove());
   document.querySelectorAll('a[href^="https://instagram.com"]').forEach(link => link.remove());
   const rangeLabel = document.createElement('label');
   rangeLabel.className = 'price-filter';
