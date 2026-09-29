@@ -9,8 +9,8 @@ const AI_QUICK_ACTIONS = [
   ['💻 Software', 'I need custom software for my business.'],
   ['🤖 AI Solution', 'I need an AI chatbot or automation solution.'],
   ['📈 SEO & Digital Growth', 'I need SEO and digital growth services.'],
-  ['💰 Pricing', 'Please show me the relevant SoftCraft starting prices.'],
-  ['📞 Talk to SoftCraft', 'I would like to talk to the SoftCraft team.']
+  ['💰 Pricing', 'Please show me the relevant SoftCrafta starting prices.'],
+  ['📞 Talk to SoftCrafta', 'I would like to talk to the SoftCrafta team.']
 ];
 const AI_BUSINESS_CONTEXT = {
   services: ['Website Development', 'Business Websites', 'Professional Websites', 'Premium Websites', 'E-commerce Websites', 'Premium E-commerce', 'Booking Websites', 'Custom Web Applications', 'Custom Software', 'CRM Software', 'ERP Software', 'SEO', 'Google Business Profile Optimization', 'AI Solutions'],
@@ -45,7 +45,7 @@ const AI_BUSINESS_CONTEXT = {
     const summary = userMessages.length
       ? userMessages.map(message => `- ${message.content}`).join('\n')
       : 'No project details shared yet';
-    const text = `Hi SoftCraft, I spoke with SoftCraft AI.\n\nConversation summary:\n${summary}\n\nI'd like to discuss this project.`;
+    const text = `Hi SoftCrafta, I spoke with SoftCraft AI.\n\nConversation summary:\n${summary}\n\nI'd like to discuss this project.`;
     return `https://wa.me/919137958519?text=${encodeURIComponent(text)}`;
   }
 
@@ -151,7 +151,7 @@ const AI_BUSINESS_CONTEXT = {
       renderMessage(messages[messages.length - 1]);
       updateHandoff();
     } catch (error) {
-      showError(error.userMessage || "Sorry, I'm having trouble connecting right now. Please try again or contact SoftCraft directly.");
+      showError(error.userMessage || "Sorry, I'm having trouble connecting right now. Please try again or contact SoftCrafta directly.");
     } finally {
       window.clearTimeout(timeout);
       isWaiting = false;
@@ -216,8 +216,8 @@ const AI_BUSINESS_CONTEXT = {
       const quick = event.target.closest('[data-ai-message]');
       if (quick) return sendMessage(quick.dataset.aiMessage);
     });
-    document.querySelector('.softcraft-ai-send').addEventListener('click', () => sendMessage(document.querySelector('.softcraft-ai-input').value));
-    document.querySelector('.softcraft-ai-input').addEventListener('keydown', event => {
+    document.querySelector('.softcraft-ai-send')?.addEventListener('click', () => sendMessage(document.querySelector('.softcraft-ai-input').value));
+    document.querySelector('.softcraft-ai-input')?.addEventListener('keydown', event => {
       if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); sendMessage(event.currentTarget.value); }
     });
     document.addEventListener('click', event => {

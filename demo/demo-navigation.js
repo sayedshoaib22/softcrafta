@@ -1,4 +1,11 @@
 (() => {
+  let robots = document.querySelector('meta[name="robots"]');
+  if (!robots) {
+    robots = document.createElement('meta');
+    robots.name = 'robots';
+    document.head.append(robots);
+  }
+  robots.content = 'noindex,follow';
   import('./client-navbar.js?v=7');
   return;
 

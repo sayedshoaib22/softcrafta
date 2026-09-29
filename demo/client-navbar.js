@@ -22,7 +22,7 @@
 
   const toolbar = body.querySelector('.demo-toolbar, .softcrafta-demo-toolbar') || document.createElement('div');
   toolbar.className = 'demo-toolbar';
-  toolbar.innerHTML = '<div class="demo-toolbar-inner"><a class="back-to-softcrafta" href="../../website-development.html">← Back to SoftCrafta</a></div>';
+  toolbar.innerHTML = '<div class="demo-toolbar-inner" style="gap:14px"><span style="font-weight:700;color:#7c2d12">DEMO PREVIEW</span><a class="back-to-softcrafta" href="../../website-development.html">← Back to SoftCrafta</a></div>';
   body.prepend(toolbar);
   body.querySelectorAll('footer a[href="../../website-development.html"]').forEach(link => link.remove());
 

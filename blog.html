@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog — Website, AI & SEO Insights | SoftCraft Agency</title>
-  <meta name="description" content="Articles and insights on website development, AI automation, SEO, software development and business technology from SoftCraft Agency." />
-  <meta name="robots" content="index, follow" />
+  <title>Blog — Website, AI & SEO Insights | SoftCrafta</title>
+  <meta name="description" content="Articles and insights on website development, AI automation, SEO, software development and business technology from SoftCrafta." />
+  <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://softcrafta.in/blog.html" />
-  <meta property="og:title" content="SoftCraft Agency Blog | Website, AI &amp; SEO Insights" />
+  <meta property="og:title" content="SoftCrafta Blog | Website, AI &amp; SEO Insights" />
   <meta property="og:description" content="Practical website development, AI automation, SEO and software insights for business owners." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://softcrafta.in/blog.html" />
   <meta property="og:image" content="https://softcrafta.in/images/logo-transparent.png" />
   <meta property="og:locale" content="en_IN" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SoftCraft Agency Blog | Website, AI &amp; SEO Insights" />
+  <meta name="twitter:title" content="SoftCrafta Blog | Website, AI &amp; SEO Insights" />
   <meta name="twitter:description" content="Practical website development, AI automation, SEO and software insights for business owners." />
   <meta name="twitter:image" content="https://softcrafta.in/images/logo-transparent.png" />
   <link rel="stylesheet" href="css/main.css" />
@@ -45,16 +45,17 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" data-tabs-scope="blog">
   <div class="container">
 
     <!-- Category Filter -->
-    <div class="tabs reveal" style="margin-bottom:2.5rem">
-      <button class="tab-btn active" data-tab="all-posts" data-tab-group="blog">All Articles</button>
-      <button class="tab-btn" data-tab="websites" data-tab-group="blog">Website Dev</button>
-      <button class="tab-btn" data-tab="ai-posts" data-tab-group="blog">AI &amp; Automation</button>
-      <button class="tab-btn" data-tab="seo-posts" data-tab-group="blog">SEO</button>
-      <button class="tab-btn" data-tab="software-posts" data-tab-group="blog">Software</button>
+    <div class="tabs reveal" role="group" aria-label="Filter blog topics" style="margin-bottom:2.5rem">
+      <button class="tab-btn active" type="button" data-tab="all-posts" data-tab-group="blog" aria-pressed="true">All Articles</button>
+      <button class="tab-btn" type="button" data-tab="websites" data-tab-group="blog" aria-pressed="false">Website Dev</button>
+      <button class="tab-btn" type="button" data-tab="ai-posts" data-tab-group="blog" aria-pressed="false">AI &amp; Automation</button>
+      <button class="tab-btn" type="button" data-tab="seo-posts" data-tab-group="blog" aria-pressed="false">SEO</button>
+      <button class="tab-btn" type="button" data-tab="software-posts" data-tab-group="blog" aria-pressed="false">Software</button>
+      <button class="tab-btn" type="button" data-tab="ecommerce-posts" data-tab-group="blog" aria-pressed="false">E-commerce</button>
     </div>
 
     <div class="tab-content active" data-tab="all-posts" data-tab-group="blog">
@@ -65,7 +66,7 @@
 
       <div class="grid-3 reveal">
 
-        <article class="blog-card">
+        <article class="blog-card" data-blog-category="websites">
           <div class="blog-img">📱</div>
           <div class="blog-body">
             <div class="blog-meta">
@@ -79,7 +80,7 @@
           </div>
         </article>
 
-        <article class="blog-card">
+        <article class="blog-card" data-blog-category="ai-posts">
           <div class="blog-img">🤖</div>
           <div class="blog-body">
             <div class="blog-meta">
@@ -93,7 +94,7 @@
           </div>
         </article>
 
-        <article class="blog-card">
+        <article class="blog-card" data-blog-category="seo-posts">
           <div class="blog-img">📈</div>
           <div class="blog-body">
             <div class="blog-meta">
@@ -107,7 +108,7 @@
           </div>
         </article>
 
-        <article class="blog-card">
+        <article class="blog-card" data-blog-category="software-posts">
           <div class="blog-img">💻</div>
           <div class="blog-body">
             <div class="blog-meta">
@@ -121,7 +122,7 @@
           </div>
         </article>
 
-        <article class="blog-card">
+        <article class="blog-card" data-blog-category="ecommerce-posts">
           <div class="blog-img">🛒</div>
           <div class="blog-body">
             <div class="blog-meta">
@@ -135,7 +136,7 @@
           </div>
         </article>
 
-        <article class="blog-card">
+        <article class="blog-card" data-blog-category="websites">
           <div class="blog-img">⚡</div>
           <div class="blog-body">
             <div class="blog-meta">
@@ -144,7 +145,7 @@
               <span>· 5 min read</span>
             </div>
             <h2 style="font-size:1rem;margin-bottom:.5rem">Core Web Vitals Explained for Business Owners</h2>
-            <p style="font-size:.8125rem">What LCP, FID and CLS mean, why Google uses them as ranking signals, and what a slow website costs your business.</p>
+            <p style="font-size:.8125rem">What LCP, INP and CLS mean, how they relate to user experience, and how site performance can affect visitors.</p>
             <a href="#" class="btn btn-ghost btn-sm" style="margin-top:.875rem" aria-disabled="true">Coming Soon →</a>
           </div>
         </article>

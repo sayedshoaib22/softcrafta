@@ -1,8 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /reviews/
+
+Disallow: /demo/
 
 Sitemap: https://softcrafta.in/sitemap.xml
-
-# Disallow admin or private paths if any are added later
-# Disallow: /admin/
-# Disallow: /private/

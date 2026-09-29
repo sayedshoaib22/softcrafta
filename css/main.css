@@ -1,7 +1,7 @@
 @import url('softcraft-ai.css');
 
 /* =============================================
-   SOFTCRAFT AGENCY — DESIGN SYSTEM
+  SOFTCRAFTA — DESIGN SYSTEM
    Premium Dark Technology Aesthetic
    ============================================= */
 
@@ -28,7 +28,7 @@
   /* Text */
   --text-primary:   #f1f5f9;
   --text-secondary: #94a3b8;
-  --text-muted:     #64748b;
+  --text-muted:     #94a3b8;
   --text-link:      #60a5fa;
 
   /* Borders */
@@ -90,6 +90,11 @@ a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 button { cursor: pointer; font-family: inherit; border: none; background: none; }
 input, textarea, select { font-family: inherit; }
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 3px;
+}
 
 /* --- Container --- */
 .container {
@@ -372,7 +377,8 @@ p { color: var(--text-secondary); line-height: 1.75; }
   width: 100%;
 }
 .form-input:focus, .form-textarea:focus, .form-select:focus {
-  outline: none;
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px var(--primary-glow);
 }
@@ -573,6 +579,7 @@ p { color: var(--text-secondary); line-height: 1.75; }
 }
 .tab-content { display: none; }
 .tab-content.active { display: block; }
+.tab-content[hidden], .blog-card[hidden] { display: none !important; }
 
 /* --- Floating WhatsApp --- */
 .floating-wa {

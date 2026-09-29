@@ -1,5 +1,5 @@
 /* =============================================
-   SOFTCRAFT AGENCY — TEAM PAGE JS
+  SOFTCRAFTA — TEAM PAGE JS
    Scroll reveal, micro-interactions
    ============================================= */
 

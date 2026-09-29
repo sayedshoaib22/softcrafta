@@ -1,5 +1,5 @@
 /* =============================================
-   SOFTCRAFT AGENCY — NAVIGATION
+  SOFTCRAFTA — NAVIGATION
    ============================================= */
 
 /* --- Header --- */
@@ -228,6 +228,7 @@
 }
 
 .mobile-menu.open { display: flex; }
+.mobile-menu[hidden] { display: none !important; }
 
 .mobile-nav {
   display: flex;

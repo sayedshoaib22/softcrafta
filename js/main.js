@@ -1,5 +1,5 @@
 /* =============================================
-   SOFTCRAFT AGENCY — MAIN JAVASCRIPT
+  SOFTCRAFTA — MAIN JAVASCRIPT
    Navigation, Interactions, Routing
    ============================================= */
 
@@ -29,22 +29,32 @@ function initMobileMenu() {
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
   const closeBtn = document.querySelector('.mobile-close');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const mobileLinks = mobileMenu?.querySelectorAll('a') || [];
 
   if (!hamburger || !mobileMenu) return;
+
+  const focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
   const openMenu = () => {
     hamburger.classList.add('open');
     mobileMenu.classList.add('open');
+    mobileMenu.hidden = false;
     document.body.style.overflow = 'hidden';
     hamburger.setAttribute('aria-expanded', 'true');
+    const main = document.getElementById('main-content');
+    if (main) main.inert = true;
+    mobileMenu.querySelector(focusableSelector)?.focus();
   };
 
-  const closeMenu = () => {
+  const closeMenu = (restoreFocus = true) => {
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
+    mobileMenu.hidden = true;
     document.body.style.overflow = '';
     hamburger.setAttribute('aria-expanded', 'false');
+    const main = document.getElementById('main-content');
+    if (main) main.inert = false;
+    if (restoreFocus) hamburger.focus();
   };
 
   hamburger.addEventListener('click', () => {
@@ -54,35 +64,66 @@ function initMobileMenu() {
 
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+  mobileLinks.forEach(link => link.addEventListener('click', () => closeMenu(false)));
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+    if (!mobileMenu.classList.contains('open')) return;
+    if (e.key === 'Escape') {
+      closeMenu();
+      return;
+    }
+    if (e.key !== 'Tab') return;
+    const focusable = [...mobileMenu.querySelectorAll(focusableSelector)];
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!first || !last) return;
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 }
 
 // ---- FAQ Accordion ----
 function initFAQ(container) {
   if (!container) container = document;
-  container.querySelectorAll('.faq-question').forEach(q => {
-    q.addEventListener('click', () => {
-      const answer = q.nextElementSibling;
-      const isOpen = q.classList.contains('active');
+  container.querySelectorAll('.faq-item').forEach((item, index) => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    if (!question || !answer) return;
 
-      // Close all in same parent
-      const parent = q.closest('.faq-list');
+    const answerId = `faq-answer-${index + 1}`;
+    question.setAttribute('aria-controls', answerId);
+    answer.id = answerId;
+    answer.hidden = !question.classList.contains('active');
+    answer.setAttribute('aria-hidden', question.classList.contains('active') ? 'false' : 'true');
+    question.setAttribute('aria-expanded', question.classList.contains('active') ? 'true' : 'false');
+
+    question.addEventListener('click', () => {
+      const isOpen = question.classList.contains('active');
+      const parent = question.closest('.faq-list');
+
       if (parent) {
         parent.querySelectorAll('.faq-question').forEach(other => {
           other.classList.remove('active');
-          const otherAnswer = other.nextElementSibling;
-          if (otherAnswer) otherAnswer.classList.remove('open');
+          other.setAttribute('aria-expanded', 'false');
+        });
+        parent.querySelectorAll('.faq-answer').forEach(other => {
+          other.classList.remove('open');
+          other.hidden = true;
+          other.setAttribute('aria-hidden', 'true');
         });
       }
 
-      if (!isOpen) {
-        q.classList.add('active');
-        if (answer) answer.classList.add('open');
-      }
+      const shouldOpen = !isOpen;
+      question.classList.toggle('active', shouldOpen);
+      answer.classList.toggle('open', shouldOpen);
+      answer.hidden = !shouldOpen;
+      answer.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
+      question.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
     });
   });
 }
@@ -90,24 +131,71 @@ function initFAQ(container) {
 // ---- Tabs ----
 function initTabs(container) {
   if (!container) container = document;
-  container.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tabGroup = btn.dataset.tabGroup;
-      const target = btn.dataset.tab;
-      const parent = btn.closest('[data-tabs-parent]') || document;
+  const groups = new Map();
+  container.querySelectorAll('.tab-btn[data-tab-group]').forEach(button => {
+    const group = button.dataset.tabGroup;
+    if (!groups.has(group)) groups.set(group, []);
+    groups.get(group).push(button);
+  });
 
-      // Update buttons
-      parent.querySelectorAll(`.tab-btn[data-tab-group="${tabGroup}"]`).forEach(b => {
-        b.classList.remove('active');
-      });
-      btn.classList.add('active');
+  groups.forEach((buttons, group) => {
+    const scope = buttons[0].closest('[data-tabs-scope]') || document;
+    const panels = [...scope.querySelectorAll(`.tab-content[data-tab-group="${group}"]`)];
+    const cards = group === 'blog' ? [...scope.querySelectorAll('.blog-card[data-blog-category]')] : [];
 
-      // Update content
-      parent.querySelectorAll(`.tab-content[data-tab-group="${tabGroup}"]`).forEach(c => {
-        c.classList.remove('active');
+    const activate = (button, updateHash = false) => {
+      const target = button.dataset.tab;
+      buttons.forEach(item => {
+        const active = item === button;
+        item.classList.toggle('active', active);
+        if (group === 'blog') item.setAttribute('aria-pressed', String(active));
+        else {
+          item.setAttribute('aria-selected', String(active));
+          item.tabIndex = active ? 0 : -1;
+        }
       });
-      const content = parent.querySelector(`.tab-content[data-tab="${target}"][data-tab-group="${tabGroup}"]`);
-      if (content) content.classList.add('active');
+
+      if (group === 'blog') {
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const visible = target === 'all-posts' || card.dataset.blogCategory === target;
+          card.hidden = !visible;
+          if (visible) visibleCount += 1;
+        });
+        if (visibleCount === 0) cards.forEach(card => { card.hidden = false; });
+        return;
+      }
+
+      panels.forEach(panel => {
+        const active = panel.dataset.tab === target;
+        panel.classList.toggle('active', active);
+        panel.hidden = !active;
+      });
+
+      if (updateHash && group === 'pricing') {
+        history.replaceState(null, '', `${location.pathname}${location.search}#${target}`);
+      }
+    };
+
+    const initialTarget = group === 'pricing'
+      ? location.hash.slice(1)
+      : '';
+    activate(buttons.find(button => button.dataset.tab === initialTarget) || buttons.find(button => button.classList.contains('active')) || buttons[0]);
+
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => activate(button, true));
+      if (button.getAttribute('role') !== 'tab') return;
+      button.addEventListener('keydown', event => {
+        let nextIndex = index;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % buttons.length;
+        else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + buttons.length) % buttons.length;
+        else if (event.key === 'Home') nextIndex = 0;
+        else if (event.key === 'End') nextIndex = buttons.length - 1;
+        else return;
+        event.preventDefault();
+        buttons[nextIndex].focus();
+        activate(buttons[nextIndex], true);
+      });
     });
   });
 }
@@ -123,7 +211,25 @@ function initContactForm() {
     if (el) el.classList.add('active');
   };
 
-  form.addEventListener('submit', async (e) => {
+  const serviceSelect = form.querySelector('#service');
+  const requestedService = new URLSearchParams(window.location.search).get('service')?.trim().slice(0, 100);
+  if (serviceSelect && requestedService) {
+    const normalizedRequest = requestedService.toLowerCase().replace(/[^a-z0-9]+/g, '');
+    const matchingOption = [...serviceSelect.options].find(option => {
+      const normalizedValue = option.value.toLowerCase().replace(/[^a-z0-9]+/g, '');
+      const normalizedLabel = option.textContent.toLowerCase().replace(/\s*\([^)]*\)\s*/g, '').replace(/[^a-z0-9]+/g, '');
+      return normalizedRequest === normalizedValue || normalizedRequest === normalizedLabel;
+    });
+    if (matchingOption) {
+      serviceSelect.value = matchingOption.value;
+    } else {
+      const displayLabel = requestedService.replace(/[-_]+/g, ' ').replace(/\b\w/g, character => character.toUpperCase());
+      serviceSelect.add(new Option(displayLabel, requestedService));
+      serviceSelect.value = requestedService;
+    }
+  }
+
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     // Basic client-side validation
@@ -144,33 +250,7 @@ function initContactForm() {
     }
 
     if (!valid) return;
-
-    // Show loading
-    const submitBtn = form.querySelector('[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-
-    try {
-      // TODO: Replace with actual backend endpoint
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(Object.fromEntries(new FormData(form)))
-      // });
-
-      // Simulate for demo
-      await new Promise(r => setTimeout(r, 1200));
-
-      // Show success
-      showState('success');
-      form.reset();
-    } catch (err) {
-      showState('error');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    }
+    showState('notice');
   });
 }
 

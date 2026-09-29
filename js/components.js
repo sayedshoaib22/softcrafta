@@ -1,10 +1,10 @@
 /* =============================================
-   SOFTCRAFT AGENCY — SHARED COMPONENTS
-   Header, Footer, WhatsApp Button
-   ============================================= */
+  SOFTCRAFTA — SHARED COMPONENTS
+  Header, Footer, WhatsApp Button
+  ============================================= */
 
 const WA_NUMBER = '919137958519';
-const WA_DEFAULT_MSG = encodeURIComponent('Hi SoftCraft Agency, I would like to discuss a project. Please share more details.');
+const WA_DEFAULT_MSG = encodeURIComponent('Hi SoftCrafta, I would like to discuss a project. Please share more details.');
 
 function waLink(msg) {
   const encoded = msg ? encodeURIComponent(msg) : WA_DEFAULT_MSG;
@@ -15,8 +15,8 @@ const HEADER_HTML = `
 <header class="site-header transparent" role="banner">
   <div class="container">
     <div class="header-inner">
-      <a href="index.html" class="logo" aria-label="SoftCraft Agency Home">
-        <img class="logo-image" src="images/logo-transparent.png" alt="SoftCraft Agency" />
+      <a href="index.html" class="logo" aria-label="SoftCrafta Home">
+        <img class="logo-image" src="images/logo-transparent.png" alt="SoftCrafta" />
       </a>
 
       <nav class="main-nav" role="navigation" aria-label="Main navigation">
@@ -49,6 +49,7 @@ const HEADER_HTML = `
         <a href="pricing.html" class="nav-link">Pricing</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="blog.html" class="nav-link">Blog</a>
+        <a href="reviews/index.html" class="nav-link">Reviews</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
@@ -85,6 +86,7 @@ const HEADER_HTML = `
       <a href="pricing.html" class="mobile-nav-link">💰 Pricing</a>
       <a href="about.html" class="mobile-nav-link">ℹ️ About</a>
       <a href="blog.html" class="mobile-nav-link">📝 Blog</a>
+      <a href="reviews/index.html" class="mobile-nav-link">⭐ Reviews</a>
       <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
     </div>
   </nav>
@@ -104,8 +106,8 @@ const FOOTER_HTML = `
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo" aria-label="SoftCraft Agency">
-            <img class="logo-image" src="images/logo-transparent.png" alt="SoftCraft Agency" />
+          <a href="index.html" class="logo" aria-label="SoftCrafta">
+            <img class="logo-image" src="images/logo-transparent.png" alt="SoftCrafta" />
           </a>
           <p class="footer-tagline">Website • Software • AI • SEO</p>
           <p style="font-size:.875rem;color:var(--text-muted);line-height:1.65;margin-top:.75rem">
@@ -128,6 +130,7 @@ const FOOTER_HTML = `
             <li><a href="pricing.html" class="footer-nav-link">Pricing</a></li>
             <li><a href="about.html" class="footer-nav-link">About</a></li>
             <li><a href="blog.html" class="footer-nav-link">Blog</a></li>
+            <li><a href="reviews/index.html" class="footer-nav-link">Reviews</a></li>
             <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
           </ul>
         </div>
@@ -170,7 +173,7 @@ const FOOTER_HTML = `
     <div class="container">
       <div class="footer-bottom-inner">
         <p style="font-size:.8125rem;color:var(--text-muted)">
-          © 2026 SoftCraft Agency. All rights reserved.
+          © 2026 SoftCrafta. All rights reserved.
         </p>
         <p style="font-size:.8125rem;color:var(--text-muted)">
           Built with care for businesses that mean business.
