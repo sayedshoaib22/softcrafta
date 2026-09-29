@@ -6,6 +6,7 @@
   <meta name="description" content="Lumière Beauty Studio is a considered salon experience in Bandra, Mumbai. Explore our services and book an appointment with our stylists.">
   <meta name="theme-color" content="#f8f4f0">
   <title>Lumière Beauty Studio | A Little Time for You</title>
+  <link rel="canonical" href="https://softcrafta.in/demo/booking-website/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
@@ -95,7 +96,7 @@
           return;
         }
         const name = new FormData(event.currentTarget).get('name').trim();
-        feedback.textContent = `Thanks, ${name}. Your ${selectedService.dataset.service} request for ${selectedDate} at ${selectedTime} is ready. Our team will be in touch to confirm.`;
+        feedback.textContent = `Booking preview confirmed for ${name}: ${selectedService.dataset.service}, ${selectedDate} at ${selectedTime}. No appointment or reminder was sent to the studio.`;
         event.currentTarget.reset();
       });
 
@@ -106,5 +107,7 @@
       }));
     })();
   </script>
+  <script src="../demo-navigation.js"></script>
+  <script src="booking-demo.js"></script>
 </body>
 </html>
