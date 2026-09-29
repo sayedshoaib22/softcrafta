@@ -44,7 +44,7 @@ const HEADER_HTML = `
           </div>
         </div>
 
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="portfolio.html" class="nav-link">Our Work</a>
         <a href="team.html" class="nav-link">Team</a>
         <a href="pricing.html" class="nav-link">Pricing</a>
         <a href="about.html" class="nav-link">About</a>
@@ -80,7 +80,7 @@ const HEADER_HTML = `
     </div>
 
     <div class="mobile-nav-section">
-      <a href="portfolio.html" class="mobile-nav-link">🗂️ Portfolio</a>
+      <a href="portfolio.html" class="mobile-nav-link">🗂️ Our Work</a>
       <a href="team.html" class="mobile-nav-link">👥 Team</a>
       <a href="pricing.html" class="mobile-nav-link">💰 Pricing</a>
       <a href="about.html" class="mobile-nav-link">ℹ️ About</a>
@@ -123,7 +123,7 @@ const FOOTER_HTML = `
           <ul class="footer-nav-list">
             <li><a href="index.html" class="footer-nav-link">Home</a></li>
             <li><a href="services.html" class="footer-nav-link">Services</a></li>
-            <li><a href="portfolio.html" class="footer-nav-link">Portfolio</a></li>
+            <li><a href="portfolio.html" class="footer-nav-link">Our Work</a></li>
             <li><a href="team.html" class="footer-nav-link">Team</a></li>
             <li><a href="pricing.html" class="footer-nav-link">Pricing</a></li>
             <li><a href="about.html" class="footer-nav-link">About</a></li>
@@ -204,8 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const waEl = document.getElementById('floating-wa');
   if (waEl) waEl.outerHTML = FLOATING_WA_HTML;
 
-  const aiScript = document.createElement('script');
-  aiScript.src = 'js/softcraft-ai.js';
-  aiScript.defer = true;
-  document.head.appendChild(aiScript);
+  if (!document.body.dataset.aiPage) {
+    const aiScript = document.createElement('script');
+    aiScript.src = 'js/softcraft-ai.js';
+    aiScript.defer = true;
+    document.head.appendChild(aiScript);
+  }
 });

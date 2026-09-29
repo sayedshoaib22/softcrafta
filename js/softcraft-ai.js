@@ -1,4 +1,4 @@
-/* SoftCraft AI — global Railway chatbot */
+/* SoftCraft AI — shared Railway chatbot for the launcher and full-page session */
 'use strict';
 
 const AI_API_URL = 'https://backend-production-c7ea.up.railway.app/api/chat';
@@ -12,12 +12,29 @@ const AI_QUICK_ACTIONS = [
   ['💰 Pricing', 'Please show me the relevant SoftCraft starting prices.'],
   ['📞 Talk to SoftCraft', 'I would like to talk to the SoftCraft team.']
 ];
+const AI_BUSINESS_CONTEXT = {
+  services: ['Website Development', 'Business Websites', 'Professional Websites', 'Premium Websites', 'E-commerce Websites', 'Premium E-commerce', 'Booking Websites', 'Custom Web Applications', 'Custom Software', 'CRM Software', 'ERP Software', 'SEO', 'Google Business Profile Optimization', 'AI Solutions'],
+  projects: [
+    { name: 'AP Travel & Rental', category: 'Travel & Rental / Transportation', description: 'A professional travel and transportation website featuring bus rental, tempo traveller rental, airport transfers, corporate transportation, school trips, and cargo & logistics services.', url: 'https://aptravelrental.in/' },
+    { name: 'AP Cargos', category: 'Cargo & Logistics', description: 'A professional cargo and logistics website for transportation and cargo services.', url: 'https://apcargos.in/' },
+    { name: 'Shree Shiv Divy', category: 'Astrology & Puja Services', description: 'A professional website for astrology, puja, religious rituals, kundli and related spiritual services.', url: 'https://shreeshivdivy.com/' },
+    { name: 'Animoro', category: 'Anime Blog / Content Platform', description: 'An anime-focused content platform and blog website.', url: 'https://animoro.in/' }
+  ],
+  contact: { phone: '+91 91379 58519', email: 'softcrafta@gmail.com' }
+};
 
 (function () {
   let initialized = false;
   let messages = [];
   let lastFailedMessage = '';
   let isWaiting = false;
+  let sessionId = new URLSearchParams(window.location.search).get('session') || createSessionId();
+
+  function createSessionId() {
+    return `session_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  }
+
+  function isFullPage() { return document.body.dataset.aiPage === 'true'; }
 
   function escapeHtml(value) {
     return value.replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
@@ -35,34 +52,9 @@ const AI_QUICK_ACTIONS = [
   function buildMarkup() {
     return `
       <div class="softcraft-ai-root">
-        <button class="softcraft-ai-launcher" type="button" aria-label="Ask SoftCraft AI" aria-controls="softcraft-ai-window" aria-expanded="false">
+        <button class="softcraft-ai-launcher" type="button" aria-label="Ask SoftCraft AI">
           <span class="softcraft-ai-icon" aria-hidden="true">✦</span><span>Ask SoftCraft AI</span>
         </button>
-        <section class="softcraft-ai-window" id="softcraft-ai-window" role="dialog" aria-modal="false" aria-labelledby="softcraft-ai-title" hidden>
-          <header class="softcraft-ai-header">
-            <div class="softcraft-ai-brand">
-              <div class="softcraft-ai-logo" aria-hidden="true">✦</div>
-              <div><h2 class="softcraft-ai-title" id="softcraft-ai-title">SoftCraft AI</h2><p class="softcraft-ai-subtitle">Your AI Business &amp; Technology Consultant</p></div>
-            </div>
-            <div class="softcraft-ai-actions">
-              <button class="softcraft-ai-icon-btn" type="button" data-ai-action="clear" aria-label="Clear chat" title="Clear chat">↺</button>
-              <button class="softcraft-ai-icon-btn" type="button" data-ai-action="minimize" aria-label="Minimize chatbot" title="Minimize">−</button>
-              <button class="softcraft-ai-icon-btn" type="button" data-ai-action="close" aria-label="Close chatbot" title="Close">×</button>
-            </div>
-          </header>
-          <div class="softcraft-ai-body">
-            <div class="softcraft-ai-messages" aria-live="polite" aria-label="SoftCraft AI conversation"></div>
-            <div class="softcraft-ai-handoff">
-              <a href="#" data-ai-whatsapp>Continue on WhatsApp</a>
-              <a href="tel:+919137958519">Call</a>
-              <a href="mailto:softcrafta@gmail.com">Email</a>
-            </div>
-            <div class="softcraft-ai-inputbar">
-              <textarea class="softcraft-ai-input" rows="1" aria-label="Message SoftCraft AI" placeholder="Tell me about your business or project..."></textarea>
-              <button class="softcraft-ai-send" type="button" aria-label="Send message">➤</button>
-            </div>
-          </div>
-        </section>
       </div>`;
   }
 
@@ -143,7 +135,7 @@ const AI_QUICK_ACTIONS = [
       const response = await fetch(AI_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages }),
+        body: JSON.stringify({ messages, sessionId, context: AI_BUSINESS_CONTEXT }),
         signal: controller.signal
       });
       let data;
@@ -179,7 +171,19 @@ const AI_QUICK_ACTIONS = [
     renderConversation();
   }
 
+  function newChat() {
+    sessionId = createSessionId();
+    const url = new URL(window.location.href);
+    url.searchParams.set('session', sessionId);
+    window.history.replaceState({}, '', url);
+    resetChat();
+  }
+
   function openChat() {
+    if (!isFullPage()) {
+      window.location.href = `ai.html?session=${encodeURIComponent(createSessionId())}`;
+      return;
+    }
     const windowEl = document.getElementById('softcraft-ai-window');
     const launcher = document.querySelector('.softcraft-ai-launcher');
     if (!windowEl) return;
@@ -198,7 +202,7 @@ const AI_QUICK_ACTIONS = [
   function init() {
     if (initialized) return;
     initialized = true;
-    document.body.insertAdjacentHTML('beforeend', buildMarkup());
+    if (!isFullPage()) document.body.insertAdjacentHTML('beforeend', buildMarkup());
     resetChat();
     document.addEventListener('click', event => {
       const launcher = event.target.closest('.softcraft-ai-launcher');
@@ -207,6 +211,7 @@ const AI_QUICK_ACTIONS = [
       if (action === 'close') return closeChat();
       if (action === 'minimize') return document.getElementById('softcraft-ai-window')?.classList.toggle('is-minimized');
       if (action === 'clear') return resetChat();
+      if (action === 'new') return newChat();
       if (action === 'retry' && lastFailedMessage) return sendMessage(lastFailedMessage);
       const quick = event.target.closest('[data-ai-message]');
       if (quick) return sendMessage(quick.dataset.aiMessage);

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Voltix is a premium destination for considered technology, from immersive audio and smart home essentials to everyday carry.">
+  <meta name="theme-color" content="#111416">
+  <title>Voltix | Technology, Considered</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--night:#111416;--panel:#1b2022;--white:#f4f5f1;--muted:#9ca5a3;--line:#303739;--lime:#cdf264;--cyan:#74d8d4;--display:'Space Grotesk',sans-serif;--body:'DM Sans',sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--night);color:var(--white);font:13px/1.55 var(--body)}body.drawer-open{overflow:hidden}a{color:inherit;text-decoration:none}img{display:block;width:100%;object-fit:cover}.wrap{width:min(1280px,calc(100% - 48px));margin:auto}.topbar{background:var(--lime);color:var(--night);text-align:center;padding:8px;font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px;border-bottom:1px solid var(--line)}.brand{font:700 25px var(--display);letter-spacing:-.08em}.brand span{color:var(--lime)}.nav-links{display:flex;gap:23px;font-size:10px;color:#dce0dc}.search{display:flex;align-items:center;border-bottom:1px solid #596162;padding:7px 0}.search input{border:0;outline:0;background:transparent;color:var(--white);font:11px var(--body);width:145px}.search button{border:0;background:none;color:var(--white);cursor:pointer}.icon-btn{border:0;background:none;color:var(--white);cursor:pointer;font:11px var(--body);white-space:nowrap}.count{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--lime);color:var(--night);font-weight:700;margin-left:4px}.hero{margin-top:19px;min-height:540px;display:grid;grid-template-columns:1fr 1fr;background:#20292b;overflow:hidden}.hero-copy{padding:70px 8%;align-self:center}.eyebrow{color:var(--lime);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}.hero h1{font:600 clamp(50px,7vw,85px)/.96 var(--display);letter-spacing:-.065em;margin:18px 0}.hero h1 span{color:var(--lime)}.hero p{max-width:390px;color:#b9c2c1}.hero .button{display:inline-flex;background:var(--lime);color:var(--night);padding:13px 17px;font-size:10px;font-weight:700;margin-top:17px}.hero-image{position:relative;min-height:540px}.hero-image img{height:100%;opacity:.83}.hero-product{position:absolute;bottom:22px;left:22px;background:rgba(17,20,22,.85);padding:12px 15px;font-size:10px}.hero-product strong{display:block;font:600 17px var(--display)}.category-bar{display:flex;gap:8px;overflow-x:auto;padding:24px 0;border-bottom:1px solid var(--line)}.category-bar a{white-space:nowrap;padding:9px 14px;border:1px solid var(--line);font-size:10px;color:#c7ceca}.category-bar a:hover{border-color:var(--lime);color:var(--lime)}.section{padding:70px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:24px}.section-head h2{font:600 clamp(32px,4vw,46px)/1.05 var(--display);letter-spacing:-.05em;margin:7px 0 0}.section-head p{max-width:370px;color:var(--muted);margin:0}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:17px}.filter{background:transparent;border:1px solid var(--line);color:#d6dbd8;padding:9px 13px;cursor:pointer;font:10px var(--body)}.filter[aria-pressed="true"],.filter:hover{background:var(--lime);border-color:var(--lime);color:var(--night)}.search-results{color:var(--muted);font-size:10px;margin-left:auto;align-self:center}.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.product-card{background:var(--panel);min-width:0}.product-image{position:relative;background:#252c2e;overflow:hidden}.product-image img{aspect-ratio:1/1;transition:transform .4s}.product-card:hover .product-image img{transform:scale(1.04)}.badge{position:absolute;top:11px;left:11px;background:var(--lime);color:var(--night);padding:5px 8px;font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.wishlist{position:absolute;right:9px;top:8px;border:1px solid #667071;border-radius:50%;width:32px;height:32px;background:rgba(17,20,22,.7);color:white;cursor:pointer;font-size:16px}.quick{position:absolute;bottom:9px;left:9px;right:9px;background:rgba(17,20,22,.87);color:white;border:1px solid #697273;padding:10px;cursor:pointer;font:10px var(--body);opacity:0;transition:opacity .2s}.product-card:hover .quick,.quick:focus{opacity:1}.product-info{padding:14px}.product-info small{color:var(--cyan);font-size:8px;letter-spacing:.1em;text-transform:uppercase}.product-info h3{font:600 15px var(--display);margin:4px 0}.product-info p{color:var(--muted);font-size:10px;margin:0}.price{margin-top:8px;font-weight:700}.price del{font-weight:400;color:#88908e;margin-left:6px}.add{display:block;width:100%;margin-top:12px;padding:10px;background:transparent;border:1px solid #687171;color:white;cursor:pointer;font:600 10px var(--body)}.add:hover{background:var(--lime);border-color:var(--lime);color:var(--night)}.deal{background:#d5e2e3;color:var(--night);padding:44px 0}.deal-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}.deal-image{height:370px}.deal-image img{height:100%}.deal h2{font:600 clamp(36px,5vw,58px)/1.02 var(--display);letter-spacing:-.06em}.deal p{max-width:420px;color:#465458}.deal .button{display:inline-block;background:var(--night);color:#fff;padding:12px 17px;font-size:10px}.analytics{background:#181d1f;padding:29px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;align-items:center;border:1px solid var(--line)}.analytics h3{font:600 20px var(--display);margin:0}.analytics p{font-size:10px;color:var(--muted);margin:5px 0 0}.metric strong{font:600 28px var(--display);color:var(--lime);display:block}.metric span{font-size:9px;color:var(--muted)}.whatsapp{padding:23px;background:#182320;display:flex;justify-content:space-between;gap:15px;align-items:center;border:1px solid #30463d}.whatsapp p{margin:0;color:#c6d3cb}.whatsapp a{color:var(--lime);font-size:10px;white-space:nowrap}.newsletter{background:var(--lime);color:var(--night);padding:43px 0}.newsletter .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px}.newsletter h2{font:600 30px var(--display);margin:0}.newsletter p{margin:4px 0 0;font-size:11px}.newsletter form{display:flex;min-width:min(100%,380px)}.newsletter input{flex:1;border:1px solid #819349;background:#e8f6bd;padding:12px;font:11px var(--body)}.newsletter button{border:0;background:var(--night);color:white;padding:0 15px;cursor:pointer;font:10px var(--body)}.footer{padding:33px 0;background:#0c0f10;color:#d9ddda}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px}.footer h3{font-size:10px}.footer p,.footer a{font-size:10px;color:#959e9b}.footer a:hover{color:var(--lime)}.footer-bottom{border-top:1px solid var(--line);margin-top:23px;padding-top:14px;display:flex;justify-content:space-between;gap:12px;color:#8b9491;font-size:9px}.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:10;opacity:0;visibility:hidden;transition:.2s}.overlay.open{opacity:1;visibility:visible}.drawer{position:fixed;z-index:11;right:0;top:0;bottom:0;width:min(430px,100%);background:#171c1e;padding:23px;transform:translateX(102%);transition:transform .25s;display:flex;flex-direction:column}.drawer.open{transform:translateX(0)}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}.drawer-head h2{font:600 22px var(--display);margin:0}.close{background:none;border:0;color:white;font-size:23px;cursor:pointer}.cart-items{overflow:auto;flex:1}.empty{color:var(--muted);padding:28px 0}.cart-row{display:grid;grid-template-columns:58px 1fr auto;gap:11px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.cart-row img{width:58px;height:58px;object-fit:cover}.cart-row strong{font-size:11px}.cart-row small{display:block;color:var(--muted);font-size:9px}.qty{display:flex;align-items:center;gap:8px;margin-top:5px}.qty button{background:transparent;border:1px solid var(--line);color:white;width:24px;height:24px;cursor:pointer}.remove{color:#b9c0be;background:none;border:0;cursor:pointer;font-size:10px}.coupon{display:flex;gap:7px;margin-top:13px}.coupon input{min-width:0;flex:1;background:#202628;border:1px solid var(--line);color:white;padding:10px}.coupon button{background:var(--lime);border:0;padding:0 12px;cursor:pointer;font:10px var(--body)}.coupon-status{font-size:9px;min-height:16px;color:var(--lime)}.cart-total{display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--line);font-size:12px}.checkout{background:var(--lime);color:var(--night);border:0;padding:13px;margin-top:13px;font:700 10px var(--body);cursor:pointer}.dialog{border:1px solid var(--line);padding:0;background:var(--panel);color:var(--white);width:min(780px,calc(100% - 30px));max-height:90vh}.dialog::backdrop{background:rgba(0,0,0,.75)}.modal-grid{display:grid;grid-template-columns:1fr 1fr}.modal-grid img{height:100%;min-height:410px}.modal-copy{padding:30px}.modal-copy h2{font:600 29px var(--display)}.modal-copy p{color:var(--muted)}.modal-close{float:right;background:none;border:0;color:#fff;font-size:23px;cursor:pointer}.toast{position:fixed;z-index:14;left:50%;bottom:20px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--lime);color:var(--night);padding:12px 18px;font-size:10px;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:850px){.wrap{width:calc(100% - 34px)}.nav{height:70px}.nav-links{display:none}.hero{min-height:440px}.hero-image{min-height:440px}.product-grid{grid-template-columns:repeat(3,1fr)}.newsletter .wrap{display:block}.newsletter form{margin-top:14px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:span 2}}@media(max-width:580px){.wrap{width:calc(100% - 28px)}.search input{width:82px}.hero{grid-template-columns:1fr}.hero-image{grid-row:1;min-height:300px;height:300px}.hero-copy{padding:40px 22px}.hero h1{font-size:57px}.section{padding:52px 0}.section-head{display:block}.section-head p{margin-top:9px}.product-grid{grid-template-columns:1fr 1fr;gap:9px}.product-info{padding:10px}.quick{opacity:1;padding:8px}.deal-grid{grid-template-columns:1fr}.deal-image{height:270px}.analytics{grid-template-columns:1fr 1fr;padding:20px}.analytics>div:first-child{grid-column:span 2}.whatsapp{display:block}.whatsapp a{display:inline-block;margin-top:10px}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:6px}.modal-grid{grid-template-columns:1fr}.modal-grid img{height:220px;min-height:0}.modal-copy{padding:20px}.dialog{overflow:auto}}
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+</head>
+<body>
+  <div class="topbar">Complimentary delivery on orders over ₹5,000 · Thoughtful tech, thoughtfully delivered</div>
+  <header class="wrap nav"><a class="brand" href="#home">voltix<span>.</span></a><nav class="nav-links" aria-label="Product categories"><a href="#products">Audio</a><a href="#products">Smart home</a><a href="#products">Workspace</a><a href="#deals">Offers</a></nav><form class="search" id="search-form" role="search"><input id="search-input" type="search" placeholder="Find your next upgrade" aria-label="Search Voltix products"><button type="submit" aria-label="Search">⌕</button></form><button class="icon-btn" type="button" id="open-cart" aria-label="Open shopping bag">Bag <span class="count" id="cart-count" aria-live="polite">0</span></button></header>
+  <main>
+    <section class="wrap hero" id="home"><div class="hero-copy"><span class="eyebrow">The Voltix edit · 2025</span><h1>More feeling.<br><span>Less noise.</span></h1><p>Considered technology for your everyday rituals. Immersive sound, calm spaces and the details that make a difference.</p><a class="button" href="#products">Discover the collection ↗</a></div><div class="hero-image"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1300&q=85" alt="Premium over-ear headphones in a quiet, refined setting" fetchpriority="high"><div class="hero-product">INTRODUCING THE VOLTIX ONE<strong>Sound, in its element.</strong></div></div></section>
+    <nav class="wrap category-bar" aria-label="Browse products"><a href="#products" data-category-link="all">All products</a><a href="#products" data-category-link="audio">Personal audio</a><a href="#products" data-category-link="home">Smart home</a><a href="#products" data-category-link="workspace">Workspace</a><a href="#products" data-category-link="carry">Everyday carry</a><a href="#deals">Offers & bundles</a></nav>
+    <section class="section" id="products"><div class="wrap"><div class="section-head"><div><span class="eyebrow">A considered collection</span><h2>Small details. Better days.</h2></div><p>Every product earns its place: beautifully made, thoughtfully chosen, and designed to be part of your daily life.</p></div><div class="filters" role="group" aria-label="Filter products"><button class="filter" type="button" data-filter="all" aria-pressed="true">Everything</button><button class="filter" type="button" data-filter="audio" aria-pressed="false">Audio</button><button class="filter" type="button" data-filter="home" aria-pressed="false">Smart home</button><button class="filter" type="button" data-filter="workspace" aria-pressed="false">Workspace</button><button class="filter" type="button" data-filter="carry" aria-pressed="false">Everyday carry</button><span class="search-results" id="result-count" aria-live="polite">8 products</span></div><div class="product-grid" id="product-grid"><article class="product-card" data-category="audio" data-name="Voltix One Wireless Headphones" data-price="24990" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" data-description="Studio-tuned, adaptive wireless sound with 42 hours of listening and a beautifully considered fit."><div class="product-image"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=720&q=80" alt="Voltix One over-ear wireless headphones" loading="lazy"><span class="badge">New · 15% off</span><button class="wishlist" type="button" aria-label="Add Voltix One to wishlist" aria-pressed="false">♡</button><button class="quick" type="button">Quick view</button></div><div class="product-info"><small>PERSONAL AUDIO</small><h3>Voltix One Wireless</h3><p>Adaptive sound · Graphite</p><div class="price">₹24,990 <del>₹29,490</del></div><button class="add" type="button">Add to bag</button></div></article><article class="product-card" data-category="audio" data-name="Halo Pro Noise Cancelling Earbuds" data-price="12990" data-image="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=80" data-description="Compact, clear and ready for the commute. Adaptive noise cancellation, all-day comfort and a pocket-sized case."><div class="product-image"><img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=720&q=80" alt="Halo Pro wireless earbuds with charging case" loading="lazy"><span class="badge">Bestseller</span><button class="wishlist" type="button" aria-label="Add Halo Pro earbuds to wishlist" aria-pressed="false">♡</button><button class="quick" type="button">Quick view</button></div><div class="product-info"><small>PERSONAL AUDIO</small><h3>Halo Pro Earbuds</h3><p>Adaptive ANC · Mist</p><div class="price">₹12,990</div><button class="add" type="button">Add to bag</button></div></article><article class="product-card" data-category="home" data-name="Luma Ambient Smart Lamp" data-price="8990" data-image="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80" data-description="Warm, beautifully adjustable light, controlled with one touch or the Voltix Home app."><div class="product-image"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=720&q=80" alt="Luma ambient table lamp with warm light" loading="lazy"><button class="wishlist" type="button" aria-label="Add Luma smart lamp to wishlist" aria-pressed="false">♡</button><button class="quick" type="button">Quick view</button></div><div class="product-info"><small>SMART HOME</small><h3>Luma Ambient Lamp</h3><p>Warm dimming · Soft white</p><div class="price">₹8,990</div><button class="add" type="button">Add to bag</button></div></article><article class="product-card" data-category="workspace" data-name="Arc Wireless Charging Stand" data-price="6490" data-image="https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80" data-description="A weighted aluminium stand that keeps your everyday devices charged and your workspace clear."><div class="product-image"><img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=720&q=80" alt="Arc aluminium wireless charging stand on a desk" loading="lazy"><span class="badge">Bundle offer</span><button class="wishlist" type="button" aria-label="Add Arc charging stand to wishlist" aria-pressed="false">♡</button><button class="quick" type="button">Quick view</button></div><div class="product-info"><small>WORKSPACE</small><h3>Arc Charging Stand</h3><p>15W fast charge · Aluminium</p><div class="price">₹6,490</div><button class="add" type="button">Add to bag</button></div></article><article class="product-card" data-category="carry" data-name="Form Everyday Tech Pouch" data-price="3990" data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80" data-description="A tactile, water-resistant home for the cables and small essentials that travel with you."><div class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=720&q=80" alt="Form charcoal tech pouch with travel essentials" loading="lazy"><button class="wishlist" type="button" aria-label="Add Form tech pouch to wishlist" aria-pressed="false">♡</button><button class="quick" type="button">Quick view</button></div><div class="product-info"><small>EVERYDAY CARRY</small><h3>Form Tech Pouch</h3><p>Weather-resistant · Charcoal</p><div class="price">₹3,990</div><button class="add" type="button">Add to bag</button></div></article><article class="product-card" data-category="home" data-name="Nest Smart Speaker" data-price="10990" data-image="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80" data-description="Room-filling sound and thoughtful controls, tuned for mornings, dinners and everything between."><div class="product-image"><img src="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=720&q=80" alt="Nest wireless smart speaker in a refined living room" loading="lazy"><span class="badge">10% off</span><button class="wishlist" type="button" aria-label="Add Nest speaker to wishlist" aria-pressed="false">♡</button><button class="quick" type="button">Quick view</button></div><div class="product-info"><small>SMART HOME</small><h3>Nest Smart Speaker</h3><p>Room-filling audio · Stone</p><div class="price">₹10,990 <del>₹12,190</del></div><button class="add" type="button">Add to bag</button></div></article><article class="product-card" data-category="audio" data-name="Studio Desk Microphone" data-price="7990" data-image="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=80" data-description="Clear, warm capture for calls, voiceovers and recordings, with a simple, focused desktop setup."><div class="product-image"><img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=720&q=80" alt="Studio desk microphone for clear recordings and calls" loading="lazy"><button class="wishlist" type="button" aria-label="Add Studio microphone to wishlist" aria-pressed="false">♡</button><button class="quick" type="button">Quick view</button></div><div class="product-info"><small>PERSONAL AUDIO</small><h3>Studio Desk Mic</h3><p>USB-C · Graphite</p><div class="price">₹7,990</div><button class="add" type="button">Add to bag</button></div></article><article class="product-card" data-category="workspace" data-name="Slate Compact Mechanical Keyboard" data-price="9990" data-image="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=80" data-description="A quiet, tactile mechanical keyboard with a compact layout and finely weighted keys."><div class="product-image"><img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=720&q=80" alt="Slate compact mechanical keyboard on a workstation" loading="lazy"><span class="badge">Staff pick</span><button class="wishlist" type="button" aria-label="Add Slate keyboard to wishlist" aria-pressed="false">♡</button><button class="quick" type="button">Quick view</button></div><div class="product-info"><small>WORKSPACE</small><h3>Slate Mechanical Keyboard</h3><p>Compact layout · Carbon</p><div class="price">₹9,990</div><button class="add" type="button">Add to bag</button></div></article></div></div></section>
+    <section class="deal" id="deals"><div class="wrap deal-grid"><div class="deal-image"><img src="https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1000&q=85" alt="Wireless headphones and personal audio in a modern workspace" loading="lazy"></div><div><span class="eyebrow" style="color:#376768">The listening set</span><h2>Your commute.<br>In your own world.</h2><p>Pair Voltix One with Halo Pro and save ₹2,000. Two thoughtful audio companions, one easy bundle.</p><a class="button" href="#products">Explore the audio set ↗</a></div></div></section>
+    <section class="section"><div class="wrap"><div class="analytics"><div><span class="eyebrow">The Voltix standard</span><h3>Designed around the way you live.</h3><p>Thoughtful details, considered materials and support that stays with you.</p></div><div class="metric"><strong>2 years</strong><span>Carefully covered warranty</span></div><div class="metric"><strong>30 days</strong><span>To make sure it feels right</span></div></div></div></section>
+    <section class="section" style="padding-top:0"><div class="wrap"><div class="whatsapp"><p>Need a hand choosing? Our product team is happy to help you find the right fit.</p><a href="https://wa.me/919876543210?text=Hi%20Voltix%2C%20I%27d%20like%20help%20choosing%20a%20product." target="_blank" rel="noopener">Talk to a product specialist on WhatsApp ↗</a></div></div></section>
+    <section class="newsletter"><div class="wrap"><div><h2>Technology, occasionally in your inbox.</h2><p>Product notes and useful things, only when we have something worth sharing.</p></div><form id="newsletter-form"><input type="email" aria-label="Email for Voltix updates" placeholder="Email address" required><button type="submit">Keep me posted ↗</button></form></div></section>
+  </main>
+  <footer class="footer"><div class="wrap"><div class="footer-grid"><div><a class="brand" href="#home">voltix<span>.</span></a><p>Thoughtful technology, selected for the things that make a day feel better.</p></div><div><h3>Discover</h3><p><a href="#products">Shop all</a></p><p><a href="#products">Audio & sound</a></p><p><a href="#deals">Current offers</a></p></div><div><h3>We're here</h3><p><a href="mailto:care@voltix.in">care@voltix.in</a></p><p><a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a></p><p><a href="../../website-development.html">Back to SoftCrafta</a></p></div></div><div class="footer-bottom"><span>© 2025 Voltix · Mumbai, India</span><span>Secure checkout · Easy returns · Human support</span></div></div></footer>
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="cart-drawer" aria-label="Shopping bag" aria-hidden="true"><div class="drawer-head"><h2>Your bag <span id="drawer-count">(0)</span></h2><button class="close" type="button" id="close-cart" aria-label="Close shopping bag">×</button></div><div class="cart-items" id="cart-items"><p class="empty">Your bag is waiting for something good.</p></div><form class="coupon" id="coupon-form"><input id="coupon-input" aria-label="Coupon code" placeholder="Coupon code"><button type="submit">Apply</button></form><div class="coupon-status" id="coupon-status" role="status">Try VOLTIX10 for 10% off.</div><div class="cart-total"><span>Subtotal</span><strong id="cart-total">₹0</strong></div><button class="checkout" type="button" id="checkout">Continue to checkout</button></aside>
+  <dialog class="dialog" id="quick-view"><div class="modal-grid"><img id="modal-image" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" alt="Voltix One wireless headphones"><div class="modal-copy"><button class="modal-close" type="button" aria-label="Close product details">×</button><span class="eyebrow">VOLTIX PRODUCT</span><h2 id="modal-title"></h2><p id="modal-description"></p><strong id="modal-price"></strong><button class="add" type="button" id="modal-add">Add to bag</button></div></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    (() => {
+      const products = [...document.querySelectorAll('.product-card')];
+      const filters = [...document.querySelectorAll('.filter')];
+      const searchInput = document.querySelector('#search-input');
+      const cart = new Map();
+      const money = new Intl.NumberFormat('en-IN');
+      const toast = document.querySelector('#toast');
+      const drawer = document.querySelector('#cart-drawer');
+      const overlay = document.querySelector('#overlay');
+      const dialog = document.querySelector('#quick-view');
+      let activeFilter = 'all';
+      let discount = 0;
+      let toastTimer;
+      let modalProduct = null;
+
+      const showToast = message => {
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => toast.classList.remove('show'), 2200);
+      };
+      const totalQuantity = () => [...cart.values()].reduce((sum, item) => sum + item.quantity, 0);
+      const subtotal = () => [...cart.values()].reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const formatPrice = amount => `₹${money.format(amount)}`;
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('drawer-open');
+        document.querySelector('#close-cart').focus();
+      };
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('drawer-open');
+        document.querySelector('#open-cart').focus();
+      };
+      const renderCart = () => {
+        const count = totalQuantity();
+        document.querySelector('#cart-count').textContent = count;
+        document.querySelector('#open-cart').setAttribute('aria-label', `Open shopping bag, ${count} ${count === 1 ? 'item' : 'items'}`);
+        document.querySelector('#drawer-count').textContent = `(${count})`;
+        const items = document.querySelector('#cart-items');
+        if (cart.size === 0) {
+          items.innerHTML = '<p class="empty">Your bag is waiting for something good.</p>';
+        } else {
+          items.innerHTML = [...cart.entries()].map(([name, item]) => `<article class="cart-row" data-cart-name="${name}"><img src="${item.image}" alt=""><div><strong>${name}</strong><small>${formatPrice(item.price)}</small><div class="qty"><button type="button" data-qty="minus" aria-label="Decrease quantity of ${name}">−</button><span>${item.quantity}</span><button type="button" data-qty="plus" aria-label="Increase quantity of ${name}">+</button></div></div><button class="remove" type="button" data-qty="remove" aria-label="Remove ${name}">Remove</button></article>`).join('');
+        }
+        document.querySelector('#cart-total').textContent = formatPrice(Math.round(subtotal() * (1 - discount)));
+      };
+      const addToCart = product => {
+        const current = cart.get(product.dataset.name) || { name: product.dataset.name, price: Number(product.dataset.price), image: product.dataset.image, quantity: 0 };
+        current.quantity += 1;
+        cart.set(product.dataset.name, current);
+        renderCart();
+        showToast(`${product.dataset.name} added to your bag`);
+      };
+      const updateProducts = () => {
+        const query = searchInput.value.trim().toLowerCase();
+        let count = 0;
+        products.forEach(product => {
+          const matchesCategory = activeFilter === 'all' || product.dataset.category === activeFilter;
+          const matchesSearch = product.dataset.name.toLowerCase().includes(query);
+          product.hidden = !matchesCategory || !matchesSearch;
+          if (!product.hidden) count += 1;
+        });
+        document.querySelector('#result-count').textContent = `${count} ${count === 1 ? 'product' : 'products'}`;
+      };
+
+      filters.forEach(button => button.addEventListener('click', () => {
+        activeFilter = button.dataset.filter;
+        filters.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        updateProducts();
+      }));
+      document.querySelectorAll('[data-category-link]').forEach(link => link.addEventListener('click', () => {
+        activeFilter = link.dataset.categoryLink;
+        filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === activeFilter)));
+        updateProducts();
+      }));
+      searchInput.addEventListener('input', updateProducts);
+      document.querySelector('#search-form').addEventListener('submit', event => {
+        event.preventDefault();
+        document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+      });
+      document.querySelector('#product-grid').addEventListener('click', event => {
+        const card = event.target.closest('.product-card');
+        if (!card) return;
+        if (event.target.closest('.add')) addToCart(card);
+        if (event.target.closest('.quick')) {
+          modalProduct = card;
+          document.querySelector('#modal-image').src = card.dataset.image;
+          document.querySelector('#modal-image').alt = card.dataset.name;
+          document.querySelector('#modal-title').textContent = card.dataset.name;
+          document.querySelector('#modal-description').textContent = card.dataset.description;
+          document.querySelector('#modal-price').textContent = formatPrice(Number(card.dataset.price));
+          dialog.showModal();
+        }
+        const wishlist = event.target.closest('.wishlist');
+        if (wishlist) {
+          const active = wishlist.getAttribute('aria-pressed') !== 'true';
+          wishlist.setAttribute('aria-pressed', String(active));
+          wishlist.textContent = active ? '♥' : '♡';
+          wishlist.style.color = active ? 'var(--lime)' : '';
+          showToast(active ? 'Saved to your wishlist' : 'Removed from your wishlist');
+        }
+      });
+      document.querySelector('#modal-add').addEventListener('click', () => {
+        if (modalProduct) addToCart(modalProduct);
+        dialog.close();
+      });
+      document.querySelector('.modal-close').addEventListener('click', () => dialog.close());
+      document.querySelector('#open-cart').addEventListener('click', openDrawer);
+      document.querySelector('#close-cart').addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', event => { if (event.key === 'Escape' && drawer.classList.contains('open')) closeDrawer(); });
+      document.querySelector('#cart-items').addEventListener('click', event => {
+        const button = event.target.closest('[data-qty]');
+        if (!button) return;
+        const row = button.closest('[data-cart-name]');
+        const item = cart.get(row.dataset.cartName);
+        if (button.dataset.qty === 'remove' || (button.dataset.qty === 'minus' && item.quantity === 1)) cart.delete(row.dataset.cartName);
+        else if (button.dataset.qty === 'plus') item.quantity += 1;
+        else if (button.dataset.qty === 'minus') item.quantity -= 1;
+        renderCart();
+      });
+      document.querySelector('#coupon-form').addEventListener('submit', event => {
+        event.preventDefault();
+        const valid = document.querySelector('#coupon-input').value.trim().toUpperCase() === 'VOLTIX10';
+        discount = valid ? 0.1 : 0;
+        document.querySelector('#coupon-status').textContent = valid ? 'VOLTIX10 applied. Your 10% saving is included.' : 'That code did not match an active offer.';
+        renderCart();
+      });
+      document.querySelector('#checkout').addEventListener('click', () => showToast(cart.size ? 'Checkout is ready to connect to your store.' : 'Add a product to your bag to continue.'));
+      document.querySelector('#newsletter-form').addEventListener('submit', event => {
+        event.preventDefault();
+        event.currentTarget.innerHTML = '<strong style="font-size:11px">You are on the list. Thank you.</strong>';
+      });
+      renderCart();
+    })();
+  </script>
+</body>
+</html>

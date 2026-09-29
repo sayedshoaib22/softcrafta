@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoftCraft AI | Your Digital Solutions Assistant</title>
+  <meta name="description" content="Talk with SoftCraft AI about websites, software, SEO and digital solutions." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/softcraft-ai.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+</head>
+<body data-ai-page="true">
+  <main class="softcraft-ai-page">
+    <header class="softcraft-ai-page-header">
+      <a href="index.html" class="softcraft-ai-back">← <span>Back to SoftCrafta</span></a>
+      <a href="index.html" class="softcraft-ai-page-brand" aria-label="SoftCraft Agency home">
+        <img src="images/logo-transparent.png" alt="SoftCraft Agency" />
+      </a>
+      <button class="softcraft-ai-new-chat" type="button" data-ai-action="new">＋ New Chat</button>
+    </header>
+
+    <section class="softcraft-ai-session" aria-labelledby="softcraft-ai-page-title">
+      <div class="softcraft-ai-session-heading">
+        <div class="softcraft-ai-logo" aria-hidden="true">✦</div>
+        <div>
+          <h1 id="softcraft-ai-page-title">SoftCraft AI</h1>
+          <p>Your AI assistant for websites, software, SEO &amp; digital solutions.</p>
+        </div>
+      </div>
+      <div class="softcraft-ai-page-body">
+        <div class="softcraft-ai-messages" aria-live="polite" aria-label="SoftCraft AI conversation"></div>
+        <div class="softcraft-ai-handoff">
+          <a href="#" data-ai-whatsapp>Continue on WhatsApp</a>
+          <a href="tel:+919137958519">Call SoftCraft</a>
+          <a href="mailto:softcrafta@gmail.com">Email</a>
+        </div>
+        <div class="softcraft-ai-inputbar">
+          <textarea class="softcraft-ai-input" rows="1" aria-label="Message SoftCraft AI" placeholder="Tell me about your business or project..."></textarea>
+          <button class="softcraft-ai-send" type="button" aria-label="Send message">➤</button>
+        </div>
+        <p class="softcraft-ai-enter-hint">Press Enter to send · Shift + Enter for a new line</p>
+      </div>
+    </section>
+  </main>
+  <script src="js/softcraft-ai.js"></script>
+</body>
+</html>
